@@ -4,7 +4,7 @@ if (process.platform === 'darwin')
   return module.exports = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
 if (process.platform !== 'win32')
-  return module.exports = 'google-chrome'
+  return module.exports = require('which').sync('google-chrome')
 
 var fs = require('fs')
 
