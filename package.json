@@ -1,6 +1,6 @@
 {
   "name": "chrome-location",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Approximates the current location of Google Chrome on your system",
   "main": "index.js",
   "license": "MIT",
