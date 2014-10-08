@@ -1,0 +1,30 @@
+{
+  "name": "chrome-location",
+  "version": "1.0.0",
+  "description": "Approximates the current location of Google Chrome on your system",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {},
+  "author": {
+    "name": "Hugh Kennedy",
+    "email": "hughskennedy@gmail.com",
+    "url": "http://hughsk.io/"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/chrome-location.git"
+  },
+  "keywords": [
+    "chrome",
+    "spawn",
+    "location",
+    "process",
+    "guesstimate"
+  ],
+  "homepage": "https://github.com/hughsk/chrome-location",
+  "bugs": {
+    "url": "https://github.com/hughsk/chrome-location/issues"
+  }
+}
