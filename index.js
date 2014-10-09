@@ -1,12 +1,20 @@
+var fs = require('fs')
+
 module.exports = null
 
-if (process.platform === 'darwin')
-  return module.exports = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+if (process.platform === 'darwin') {
+  var regPath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+  var altPath = '~' + regPath;
+
+  return module.exports = fs.existsSync(regPath)
+    ? regPath
+    : altPath
+}
+
 
 if (process.platform !== 'win32')
   return module.exports = require('which').sync('google-chrome')
 
-var fs = require('fs')
 
 var suffix = '\\Google\\Chrome\\Application\\chrome.exe';
 var prefixes = [
