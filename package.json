@@ -11,6 +11,7 @@
     "url": "http://hughsk.io/"
   },
   "dependencies": {
+    "userhome": "^1.0.0",
     "which": "^1.0.5"
   },
   "devDependencies": {},
