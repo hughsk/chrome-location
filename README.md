@@ -12,6 +12,15 @@ Originally sourced from [karma-chrome-launcher](http://git.io/MRU84Q).
 
 Returns the path to Google Chrome as a string.
 
+### CLI Usage
+
+Remember to use quotes as chrome's path usually has spaces in it.
+
+```
+> "`chrome-location`"
+```
+
+
 ## License
 
 MIT. See [LICENSE.md](http://github.com/hughsk/chrome-location/blob/master/LICENSE.md) for details.
