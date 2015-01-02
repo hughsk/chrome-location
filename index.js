@@ -4,7 +4,11 @@ var other = !osx && !win
 var fs    = require('fs')
 
 if (other) {
-  module.exports = require('which').sync('google-chrome')
+  try {
+    module.exports = require('which').sync('google-chrome')
+  } catch(e) {
+    module.exports = null
+  }
 } else
 if (osx) {
   var regPath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
@@ -29,3 +33,5 @@ if (osx) {
     }
   }
 }
+
+module.exports = module.exports || null
