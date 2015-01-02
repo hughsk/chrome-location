@@ -1,6 +1,6 @@
 {
   "name": "chrome-location",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Approximates the current location of Google Chrome on your system",
   "main": "index.js",
   "bin": {
