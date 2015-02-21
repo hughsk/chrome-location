@@ -11,14 +11,21 @@ if (other) {
   }
 } else
 if (osx) {
-  var regPath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+  var osxSuffix = '/Contents/MacOS/Google Chrome'
+  var regPath = '/Applications/Google Chrome.app' + osxSuffix
   var altPath = require('userhome')(regPath.slice(1))
+  var mdFindCmd = 'mdfind \'kMDItemDisplayName == "Google Chrome" && kMDItemKind == Application\''
 
-  module.exports = fs.existsSync(regPath)
-    ? regPath
-    : altPath
+  if (fs.existsSync(regPath)) {
+    module.exports = regPath
+  } else if (fs.existsSync(altPath)) {
+    module.exports = altPath
+  } else {
+    var foundPath = require('child_process').execSync(mdFindCmd, { encoding: 'utf8' })
+    module.exports = (foundPath) ? foundPath.trim() + osxSuffix : null
+  }
 } else {
-  var suffix = '\\Google\\Chrome\\Application\\chrome.exe';
+  var winSuffix = '\\Google\\Chrome\\Application\\chrome.exe';
   var prefixes = [
       process.env.LOCALAPPDATA
     , process.env.PROGRAMFILES
@@ -26,7 +33,7 @@ if (osx) {
   ]
 
   for (var i = 0; i < prefixes.length; i++) {
-    var exe = prefixes[i] + suffix
+    var exe = prefixes[i] + winSuffix
     if (fs.existsSync(exe)) {
       module.exports = exe
       break
