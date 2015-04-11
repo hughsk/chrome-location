@@ -14,9 +14,15 @@ Returns the path to Google Chrome as a string.
 
 ### CLI Usage
 
-Remember to use quotes as chrome's path usually has spaces in it.
-
+`stdout` path to Chrome:
+```bash
+> chrome-location
+# /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 ```
+
+Open Chrome (remember to use quotes as Chrome's path usually has spaces in it):
+
+```bash
 > "`chrome-location`"
 ```
 
