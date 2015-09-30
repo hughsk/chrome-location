@@ -18,20 +18,13 @@ if (osx) {
     ? regPath
     : altPath
 } else {
-  var suffix = '\\Google\\Chrome\\Application\\chrome.exe';
-  var prefixes = [
+  var suffix = '\\Google\\Chrome\\Application\\chrome.exe'
+  module.exports = [
       process.env.LOCALAPPDATA
     , process.env.PROGRAMFILES
     , process.env['PROGRAMFILES(X86)']
-  ]
-
-  for (var i = 0; i < prefixes.length; i++) {
-    var exe = prefixes[i] + suffix
-    if (fs.existsSync(exe)) {
-      module.exports = exe
-      break
-    }
-  }
+  ].reduce(function (existing, prefix) {
+    var exe = prefix] + suffix
+    return existing || (fs.existsSync(exe) ? exe : null)
+  }, null)
 }
-
-module.exports = module.exports || null
