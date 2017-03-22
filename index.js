@@ -4,10 +4,15 @@ var other = !osx && !win
 var fs    = require('fs')
 
 if (other) {
+  var which = require('which');
   try {
-    module.exports = require('which').sync('google-chrome')
+    module.exports = which.sync('google-chrome');
   } catch(e) {
-    module.exports = null
+    try {
+      module.exports = which.sync('chromium-browser');
+    } catch (e) {
+      module.exports = null;
+    }
   }
 } else
 if (osx) {
